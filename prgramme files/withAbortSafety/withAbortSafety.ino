@@ -1,15 +1,22 @@
-char inputByte = '0' ;
+char inputByte;
 char lamp_state = '0';
 int relay_port = 11;
-//unsigned long ON_duration_val= 60000; //define your ON duration here in seconds, unit are in miliseconds i.e 1000 = 1 sec.
-#define interval 5000;
 
-//unsigned long previousTime;
+unsigned long interval = 5000;
+unsigned long lampTurnedOnAt;
+unsigned long lampTurnedOffAt;
+
 unsigned long time_for_action;
+
+unsigned long buttonPushedMillis;
+
+unsigned long receivedTime;
 
 
 
 void setup() {
+
+  
   Serial.begin(9600);
   pinMode(relay_port, OUTPUT);
   digitalWrite(relay_port , HIGH); //relay off
@@ -19,6 +26,9 @@ void loop() {
 //  lamp_state = 0; //initial state of the lamp off.
 //  digitalWrite(relay_port, HIGH); // set the relay off intially
 //unsigned long currentTime = millis();
+
+unsigned long currentMillis = millis(); 
+
 while(Serial.available()>0){
 
   
@@ -27,18 +37,22 @@ while(Serial.available()>0){
   
     Serial.print("inputByte\t");
     Serial.println(inputByte);
-    
+
+    if(inputByte == '1'){
+      buttonPushedMillis = currentMillis;
+      }
+//   
     
     //Acknowlege back to app that signal recieved succesfully
     
    
-    Serial.print("lamp_state intially-->\t");
-    Serial.println(lamp_state);
+//    Serial.print("lamp_state intially-->\t");
+//    Serial.println(lamp_state);
 //}
 //     unsigned long currentTime = millis();
 //    if(lamp_state ==1){
 }
-    
+
     switch(inputByte){
       
       case '0':
@@ -48,42 +62,40 @@ while(Serial.available()>0){
       Serial.print("Lamp State-->\t");
       Serial.println(lamp_state);
 
+      inputByte = NULL;
+
       break;
 
+      
 
       case '1':
       digitalWrite(relay_port, LOW);
-      Serial.println("Lamp on");
+      
+      lampTurnedOnAt = currentMillis;
+      Serial.print("lampTurnedOnAt\t");
+      Serial.println(lampTurnedOnAt);
+      
       lamp_state = '1';
       Serial.print("Lamp State--->\t");
       Serial.println(lamp_state);
 
 
-      if(millis() > time_for_action){
 
-      time_for_action = millis() + (unsigned long)interval;
-      
+      if ((unsigned long)(currentMillis - buttonPushedMillis) >= interval){
+
 
       digitalWrite(relay_port, HIGH);
       Serial.println("Lamp off");
-      lamp_state = 0;
-      Serial.print("Lamp State-->\t");
+      
+      lamp_state = '0';
+      Serial.print("Lamp State--->\t");
       Serial.println(lamp_state);
-  
-//      Serial.print("currentTime\t");
-//      Serial.println(currentTime);
-//
-//      Serial.print("previousTime\t");
-//      Serial.println(previousTime);
 
-//      previousTime = currentTime;
-//
-//      currentTime = 0UL;
+      lampTurnedOffAt = currentMillis;
+      Serial.print(" lampTurnedOffAt\t");
+      Serial.println(lampTurnedOffAt);
 
-      inputByte = '0';
-    
-    Serial.println("5secs ");
-    Serial.println(millis());
+    inputByte = NULL;
   }
 
 
@@ -96,13 +108,13 @@ while(Serial.available()>0){
       break;
 
 
-      default:
-      digitalWrite(relay_port, HIGH);
-      Serial.println("Lamp off");
-      lamp_state = '0';
-      Serial.print("Lamp State--->\t");
-      Serial.println(lamp_state);
-      break;
+//      default:
+//      digitalWrite(relay_port, HIGH);
+//      Serial.println("Lamp off");
+//      lamp_state = '0';
+//      Serial.print("Lamp State--->\t");
+//      Serial.println(lamp_state);
+//      break;
 
 
       
@@ -110,7 +122,6 @@ while(Serial.available()>0){
 
 
  
-  
 }
  
 //  if(lamp_state == '1'){
