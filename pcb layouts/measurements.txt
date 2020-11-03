@@ -1,0 +1,5 @@
+0.60 inches(15.24mm) horizontal distance between headers
+0.73 inches(18.542mm) nano breadth
+1.70 inches(43.18mm) nano length
+
+0.07 inches(1.778mm) *4 holes on corners to mount
