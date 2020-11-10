@@ -93,82 +93,170 @@
    (shape (circ I14 320000 0 0))
    (shape (circ BOT 320000 0 0))
   )
+  (padstack PS5
+   (shape (circ TOP 254000 0 0))
+   (shape (circ I1 254000 0 0))
+   (shape (circ I2 254000 0 0))
+   (shape (circ I3 254000 0 0))
+   (shape (circ I4 254000 0 0))
+   (shape (circ I5 254000 0 0))
+   (shape (circ I6 254000 0 0))
+   (shape (circ I7 254000 0 0))
+   (shape (circ I8 254000 0 0))
+   (shape (circ I9 254000 0 0))
+   (shape (circ I10 254000 0 0))
+   (shape (circ I11 254000 0 0))
+   (shape (circ I12 254000 0 0))
+   (shape (circ I13 254000 0 0))
+   (shape (circ I14 254000 0 0))
+   (shape (circ BOT 254000 0 0))
+  )
+  (padstack PS8
+   (shape (circ TOP 76200 0 0))
+   (shape (circ I1 76200 0 0))
+   (shape (circ I2 76200 0 0))
+   (shape (circ I3 76200 0 0))
+   (shape (circ I4 76200 0 0))
+   (shape (circ I5 76200 0 0))
+   (shape (circ I6 76200 0 0))
+   (shape (circ I7 76200 0 0))
+   (shape (circ I8 76200 0 0))
+   (shape (circ I9 76200 0 0))
+   (shape (circ I10 76200 0 0))
+   (shape (circ I11 76200 0 0))
+   (shape (circ I12 76200 0 0))
+   (shape (circ I13 76200 0 0))
+   (shape (circ I14 76200 0 0))
+   (shape (circ BOT 76200 0 0))
+  )
   )
   (network_out
-   (Net #00000 
+   (Net #00034 
    (rule
    )
-   (wire (path BOT 25400  0 2794000 -2016000 2794000 -2016000 -1000000)
-    (connect (terminal pin J4-0) (terminal pin J1-4))
    )
-   )
-   (Net #00001 
+   (Net #00039 
    (rule
    )
-   (wire (path BOT 25400  0 2540000 -1762000 2540000 -1762000 -1000000)
-    (connect (terminal pin J4-1) (terminal pin J1-3))
    )
-   )
-   (Net #00013 
+   (Net #00041 
    (rule
    )
-   (wire (path TOP 25400  0 -508000 -1000000 -508000 -1000000 -1000000)
-    (connect (terminal pin J4-13) (terminal pin J1-0))
    )
-   )
-   (Net #00014 
+   (Net BT-RX 
    (rule
    )
-   (wire (path TOP 25400  0 -762000 254000 -762000 254000 -635000
-     2309673 -635000 2309673 190500 2984500 190500 2984500 1246000
-     2750000 1246000)
-    (connect (terminal pin J4-14) (terminal pin J2-1))
+   (wire (path TOP 25400  3000000 2794000 1056000 2794000 762000 2500000
+     762000 -623000 758000 -750000)
+    (connect (terminal pin J4-0) (terminal pin BT-1))
+    (type protect)
    )
+   (via PS8 3000000 2794000)
    )
-   (Net #00029 
+   (Net BT-TX 
    (rule
    )
-   (wire (path BOT 25400  2750000 1500000 2984500 1500000 2984500 635000
-     -1254000 635000 -1254000 -1000000)
-    (connect (terminal pin J2-2) (terminal pin J1-1))
+   (wire (path BOT 25400  3000000 2540000 2290000 2540000 2000000 2250000
+     2000000 1746000 1750000 1496000 1000000 1496000 504000 1000000
+     504000 -750000)
+    (connect (terminal pin J4-1) (terminal pin BT-2))
+    (type protect)
    )
-   (wire (path BOT 25400  1524000 2794000 2750000 2794000 2750000 1500000)
-    (connect (terminal pin J5-14) (terminal pin J2-2))
    )
-   (wire (path BOT 25400  -1254000 -1000000 -1250000 -1000000 -1250000 -1750000)
-    (connect (terminal pin J1-1) (terminal pin 5V-0))
+   (Net BT-VCC 
+   (rule
+   )
+   (wire (path BOT 25400  4524000 2794000 4254500 2794000 4254500 2667000
+     -4000 2667000 -4000 -750000)
+    (connect (terminal pin J5-14) (terminal pin BT-4))
+   )
+   (wire (path BOT 25400  -1000000 -1246000 -317500 -1246000 -317500 -1270000
+     0 -1270000)
+    (connect (terminal pin RELAY-2) (terminal wire))
+   )
+   (wire (path BOT 25400  -4000 -750000 0 -750000 0 -1270000)
+    (connect (terminal pin BT-4) (terminal wire))
+   )
+   (wire (path BOT 25400  0 -1270000 0 -1750000)
+    (connect (terminal wire) (terminal pin 5V-0))
    )
    )
    (Net GND 
    (rule
    )
-   (wire (path TOP 25400  2750000 992000 2476500 992000 2476500 381000
-     -1508000 381000 -1508000 -1000000)
-    (connect (terminal pin J2-0) (terminal pin J1-2))
+   (wire (path BOT 25400  250000 -750000 381000 -750000 381000 -1016000
+     4120648 -1016000 4120648 2540000 4524000 2540000)
+    (connect (terminal pin BT-3) (terminal pin J5-13))
    )
-   (wire (path BOT 25400  1524000 2540000 2254166 2540000 2254166 992000
-     2750000 992000)
-    (connect (terminal pin J5-13) (terminal pin J2-0))
+   (wire (path TOP 25400  -1000000 -1754000 -698500 -1754000 -698500 -1905000
+     190500 -1905000 190500 -1750000 500000 -1750000)
+    (connect (terminal pin RELAY-0) (terminal pin GND-0))
    )
-   (wire (path BOT 25400  -1508000 -1000000 -1508000 -1460500 -1750000 -1460500
-     -1750000 -1750000)
-    (connect (terminal pin J1-2) (terminal pin GND-0))
+   (wire (path BOT 25400  250000 -750000 250000 -1460500 500000 -1460500
+     500000 -1750000)
+    (connect (terminal pin BT-3) (terminal pin GND-0))
+   )
+   )
+   (Net "INT1 NANO15" 
+   (rule
+   )
+   )
+   (Net "JD VCC 5V SUPPLY" 
+   (rule
+   )
+   (wire (path BOT 25400  -2500000 3500000 -2500000 3175000 -2222500 3175000
+     -2222500 1016000 -2500000 1016000 -2500000 738000)
+    (connect (terminal pin RL2-0) (terminal pin OPTOCOUPLER-3))
+   )
+   )
+   (Net RELAY 
+   (rule
+   )
+   (wire (path TOP 25400  3000000 -762000 2422982 -762000 2422982 -1500000
+     -1000000 -1500000)
+    (connect (terminal pin J4-14) (terminal pin RELAY-1))
+   )
+   )
+   (Net STATE 
+   (rule
+   )
+   (wire (path BOT 25400  1742000 -508000 1500000 -750000 1012000 -750000)
+    (connect (terminal wire) (terminal pin BT-0))
+    (type protect)
+   )
+   (wire (path BOT 25400  3000000 -508000 1742000 -508000)
+    (connect (terminal pin J4-13) (terminal wire))
+    (type protect)
+   )
+   )
+   (Net {VOID} 
+   (wire (path BOT 25400  758000 -750000 762000 -753790)
+    (connect (terminal wire) (terminal wire))
+    (type protect)
    )
    )
    (Net {NC-1} 
-   (via PS3 -3750000 -1750000 (net {NC-1} )
+   (via PS3 -2750000 -1750000 (net {NC-1} )
     (type protect))
    )
    (Net {NC-2} 
-   (via PS3 -3750000 4000000 (net {NC-2} )
+   (via PS3 -2750000 4000000 (net {NC-2} )
     (type protect))
    )
    (Net {NC-3} 
-   (via PS3 5250000 4000000 (net {NC-3} )
+   (via PS3 8250000 4000000 (net {NC-3} )
     (type protect))
    )
    (Net {NC-4} 
-   (via PS3 5250000 -1750000 (net {NC-4} )
+   (via PS3 8250000 -1750000 (net {NC-4} )
+    (type protect))
+   )
+   (Net {NC-5} 
+   (via PS5 3400000 4000000 (net {NC-5} )
+    (type protect))
+   )
+   (Net {NC-6} 
+   (via PS5 3900000 4000000 (net {NC-6} )
     (type protect))
    )
   )
