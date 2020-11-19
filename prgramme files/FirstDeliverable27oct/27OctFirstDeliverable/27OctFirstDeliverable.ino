@@ -1,8 +1,8 @@
 char inputByte;
 char lamp_state = '0';
-int relay_port = 11;
+int relay_port = 12;
 
-const byte BT_StatePin = 12;
+const byte BT_StatePin = 11;
 boolean BTconnected = false;
 const byte ledpin = 10;
 
