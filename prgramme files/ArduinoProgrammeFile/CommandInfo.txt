@@ -1,0 +1,23 @@
+1. use [DCH,Interval in seconds] command to turn on lamp for a given interval of time
+
+for instance [DCH,50]
+where DCH = command to turn on the lamp, Note: command is caseSensitive DCH!= dch or Dch
+ and 50 = the interval value in seconds
+
+
+2. use [DCL,0] to turn off lamp or you can simply pass [DCL,]  NOTE Comma is mandatory to pass after DCL.
+
+
+/******
+      Command notations are simple HexaDecimals Pin no of arduion nano DC is equivalent to D12 in Hexa and H is for High, L for Low
+
+      Command BreakUp:
+        D = Digital Pin
+        C = 12 in HexaDecimal to Decimal conversion
+        H or L = High to turn on , L = Low to turn off
+
+*******/
+
+
+
+
